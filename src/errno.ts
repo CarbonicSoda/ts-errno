@@ -1,5 +1,5 @@
 /**
- * LibUV ERRNO symbolic constants.
+ * LibUV ERRNO symbolic constants (adopted by Node.js).
  * Refer to {@link https://docs.libuv.org/en/stable/errors.html LibUV/Errors}.
  */
 export const ERRNO = {

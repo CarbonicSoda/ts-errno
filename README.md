@@ -4,8 +4,9 @@ This package is for ERRNO symbolic constants and error throwing, with full
 typing support.
 
 List of ERRNO is based off
-[LibUV/Errors](https://docs.libuv.org/en/stable/errors.html). Corresponding
-number codes are not included, as they may not be consistent cross-platform.
+[LibUV/Errors](https://docs.libuv.org/en/stable/errors.html) (adopted by
+Node.js). Corresponding number codes are not included, as they are not
+cross-platform consistent.
 
 Install this package in your project:
 
