@@ -29,10 +29,6 @@ export function err(
 	return (template, ...substitutions) => {
 		const message = String.raw(template, ...substitutions);
 
-		return new Error(`[${symbol(errno)}] ${errno}: ${message}`, { cause });
+		return new Error(`${errno}: ${message}`, { cause });
 	};
-}
-
-function symbol(errno: (typeof ERRNO)[keyof typeof ERRNO]): string {
-	return Object.entries(ERRNO).find(([, e]) => errno === e)![0];
 }
