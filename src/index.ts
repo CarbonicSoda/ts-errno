@@ -3,7 +3,7 @@ import { errno as ERRNO } from "./errno";
 export { errno } from "./errno";
 
 /**
- * @param errno symbolic constant from {@link errno}
+ * @param errno symbolic constant from {@link ERRNO}
  * @param cause optional error cause for debugging
  *
  * @example
