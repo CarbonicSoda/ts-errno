@@ -1,7 +1,7 @@
 {
 	"name": "ts-errno",
 	"author": "CarbonicSoda",
-	"version": "1.0.4",
+	"version": "1.2.0",
 	"description": "TypeScript Symbolic Errors for ERRNO",
 	"license": "MIT",
 	"repository": {

@@ -3,14 +3,15 @@ import { ERRNO } from "./errno";
 export { ERRNO as errno } from "./errno";
 
 /**
- * @param errno symbolic constant from {@link ERRNO}
- * @param cause optional error cause for debugging
+ * Get ERRNO error to throw.
+ *
+ * @param errno symbolic constant from {@link ERRNO}.
+ * @param cause optional error cause for debugging.
  *
  * @example
  * if (!exist(file)) {
  * 	throw err(errno.ENOENT)`${file} not found.`;
  * }
- *
  * @example
  * try {
  * 	open(file);
@@ -19,7 +20,7 @@ export { ERRNO as errno } from "./errno";
  * }
  */
 export function err(
-	errno: ERRNO,
+	errno: (typeof ERRNO)[keyof typeof ERRNO],
 	cause?: unknown,
 ): (
 	template: { raw: readonly string[] | ArrayLike<string> },
@@ -32,6 +33,6 @@ export function err(
 	};
 }
 
-function symbol(errno: ERRNO): string {
+function symbol(errno: (typeof ERRNO)[keyof typeof ERRNO]): string {
 	return Object.entries(ERRNO).find(([, e]) => errno === e)![0];
 }
