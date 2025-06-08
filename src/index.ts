@@ -1,16 +1,16 @@
-import { errno } from "./errno";
+import { errno as ERRNO } from "./errno";
 
 export { errno } from "./errno";
 
 /**
- * @param err ERRNO symbolic constant from {@link errno}
+ * @param errno symbolic constant from {@link errno}
  * @param cause optional error cause for debugging
  *
  * @example throw err(errno.ENOENT)`${file} not found.`
  * @example throw err(errno.ENOENT, { ... })`${file} not found.`
  */
 export function err(
-	err: errno,
+	errno: ERRNO,
 	cause?: unknown,
 ): (
 	template: { raw: readonly string[] | ArrayLike<string> },
@@ -19,10 +19,10 @@ export function err(
 	return (template, ...substitutions) => {
 		const message = String.raw(template, ...substitutions);
 
-		return new Error(`[${symbol(err)}] ${err}: ${message}`, { cause });
+		return new Error(`[${symbol(errno)}] ${errno}: ${message}`, { cause });
 	};
 }
 
-function symbol(err: errno): string {
-	return Object.entries(errno).find(([, e]) => err === e)![0];
+function symbol(errno: ERRNO): string {
+	return Object.entries(ERRNO).find(([, e]) => errno === e)![0];
 }

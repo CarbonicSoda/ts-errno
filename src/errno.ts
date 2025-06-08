@@ -1,4 +1,4 @@
-/** ERRNO symbolic constants enum */
+/** enum of ERRNO symbolic constants */
 export enum errno {
 	E2BIG = "Argument list too long",
 	EACCES = "Permission denied",

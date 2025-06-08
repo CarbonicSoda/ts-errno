@@ -16,12 +16,10 @@ pnpm add ts-errno
 yarn add ts-errno
 ```
 
-Now you could throw errors easily:
+Now errors could be thrown easily:
 
 ```ts
 import { err, errno } from "ts-errno";
-
-const file = "/non-existent.c";
 
 // throw with additional message
 throw err(errno.ENOENT)`${file} not found.`;
