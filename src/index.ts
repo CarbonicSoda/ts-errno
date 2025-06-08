@@ -6,8 +6,17 @@ export { errno } from "./errno";
  * @param errno symbolic constant from {@link errno}
  * @param cause optional error cause for debugging
  *
- * @example throw err(errno.ENOENT)`${file} not found.`
- * @example throw err(errno.ENOENT, { ... })`${file} not found.`
+ * @example
+ * if (!exist(file)) {
+ * 	throw err(errno.ENOENT)`${file} not found.`;
+ * }
+ *
+ * @example
+ * try {
+ * 	open(file);
+ * } catch (e) {
+ * 	throw err(errno.ENOENT, e)`${file} not found.`;
+ * }
  */
 export function err(
 	errno: ERRNO,
