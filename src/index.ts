@@ -1,6 +1,6 @@
-import { errno as ERRNO } from "./errno";
+import { ERRNO } from "./errno";
 
-export { errno } from "./errno";
+export { ERRNO as errno } from "./errno";
 
 /**
  * @param errno symbolic constant from {@link ERRNO}
