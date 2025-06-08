@@ -1,27 +1,31 @@
-<h3 align="center">
-	<!-- MO TODO dont forget to replace alt -->
-	<img src="https://raw.githubusercontent.com/CarbonicSoda//master/media/icon.png" width="130" alt="Icon" /><br />
-
-</h3>
-<p align="center"></p>
-
----
-
 ### Usage
+
+This package is for ERRNO symbolic constants and error throwing, with full
+typing support.
 
 Install this package in your project:
 
 ```bash
 # via npm
-npm add
+npm add ts-errno
 
 # or pnpm
-pnpm add
+pnpm add ts-errno
 
 # or yarn
-yarn add
+yarn add ts-errno
 ```
 
----
+Now you could throw errors easily:
 
-_&emsp;_
+```ts
+import { err, errno } from "ts-errno";
+
+const file = "/non-existent.c";
+
+// throw with additional message
+throw err(errno.ENOENT)`${file} not found.`;
+
+// throw with additional cause
+throw err(errno.ENOENT, { ... })`${file} not found.`;
+```
