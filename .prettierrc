@@ -1,0 +1,16 @@
+{
+	"useTabs": true,
+	"tabWidth": 4,
+
+	"semi": true,
+	"endOfLine": "auto",
+
+	"trailingComma": "all",
+
+	"printWidth": 80,
+	"proseWrap": "always",
+	"objectWrap": "collapse",
+
+	"quoteProps": "consistent",
+	"singleAttributePerLine": true
+}
