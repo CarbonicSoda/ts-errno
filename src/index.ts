@@ -1,26 +1,27 @@
 import { ERRNO } from "./errno";
 
-export { ERRNO as errno } from "./errno";
-
 /**
  * Get ERRNO error to throw.
  *
- * @param errno symbolic constant from {@link ERRNO}.
- * @param cause optional error cause for debugging.
+ * @param errno code of {@link ERRNO}.
+ * @see {@link ERRNO} for code details.
  *
  * @example
  * if (!exist(file)) {
- * 	throw err(errno.ENOENT)`${file} not found.`;
+ * 	throw err("ENOENT")`${file} not found.`;
  * }
+ *
+ * @param cause optional error details.
+ *
  * @example
  * try {
  * 	open(file);
  * } catch (e) {
- * 	throw err(errno.ENOENT, e)`${file} not found.`;
+ * 	throw err("ENOENT", e)`${file} not found.`;
  * }
  */
 export function err(
-	errno: (typeof ERRNO)[keyof typeof ERRNO],
+	errno: keyof typeof ERRNO,
 	cause?: unknown,
 ): (
 	template: { raw: readonly string[] | ArrayLike<string> },
@@ -29,6 +30,6 @@ export function err(
 	return (template, ...substitutions) => {
 		const message = String.raw(template, ...substitutions);
 
-		return new Error(`${errno}: ${message}`, { cause });
+		return new Error(`[${errno}] ${ERRNO[errno]}: ${message}`, { cause });
 	};
 }

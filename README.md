@@ -24,18 +24,18 @@ yarn add ts-errno
 Now errors could be thrown easily:
 
 ```ts
-// example.ts
-import { err, errno } from "ts-errno";
+// demo.ts
+import { err } from "ts-errno";
 
 // throw with additional message
 if (!exist(file)) {
-    throw err(errno.ENOENT)`${file} not found.`;
+    throw err("ENOENT")`${file} not found.`;
 }
 
-// throw with additional cause
+// throw with additional details
 try {
     open(file);
 } catch (e) {
-    throw err(errno.ENOENT, e)`${file} not found.`;
+    throw err("ENOENT", e)`${file} not found.`;
 }
 ```
